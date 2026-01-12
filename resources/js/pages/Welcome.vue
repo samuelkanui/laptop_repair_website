@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
+
 import BrandMarquee from '@/components/ui/BrandMarquee.vue';
 import Navbar from '@/components/ui/Navbar.vue';
 import HoverFooter from '@/components/ui/HoverFooter.vue';
@@ -71,10 +71,7 @@ onMounted(() => {
     <Head title="Laptop Doctors" />
     <div class="relative min-h-screen bg-black text-white font-sans selection:bg-white/20">
         
-        <!-- Fixed Background Animation -->
-        <div class="fixed inset-0 z-0 opacity-60 pointer-events-none">
-            <SpiralAnimation />
-        </div>
+
 
         <Navbar />
 
