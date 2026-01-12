@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
 import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
+import Navbar from '@/components/ui/Navbar.vue';
 import { ShieldCheck, Clock, Users, Wrench } from 'lucide-vue-next';
 </script>
 
@@ -11,6 +12,8 @@ import { ShieldCheck, Clock, Users, Wrench } from 'lucide-vue-next';
         <div class="fixed inset-0 z-0 opacity-40 pointer-events-none">
             <SpiralAnimation />
         </div>
+
+        <Navbar />
 
         <div class="relative z-10 w-full flex flex-col items-center">
             

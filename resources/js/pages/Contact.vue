@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
 import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
+import Navbar from '@/components/ui/Navbar.vue';
 import { Mail, Phone, MapPin, Send } from 'lucide-vue-next';
 
 const form = useForm({
@@ -25,6 +26,8 @@ const submit = () => {
         <div class="fixed inset-0 z-0 opacity-40 pointer-events-none">
             <SpiralAnimation />
         </div>
+
+        <Navbar />
 
         <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-6 md:p-12">
             
