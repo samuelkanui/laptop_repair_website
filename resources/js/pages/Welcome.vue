@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-
+import DottedSurface from '@/components/ui/DottedSurface.vue';
 import BrandMarquee from '@/components/ui/BrandMarquee.vue';
 import Navbar from '@/components/ui/Navbar.vue';
 import HoverFooter from '@/components/ui/HoverFooter.vue';
@@ -79,9 +79,11 @@ onMounted(() => {
         <div class="relative z-10 w-full flex flex-col items-center">
             
             <!-- Hero Section (Full Viewport Height) -->
-            <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+            <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center relative overflow-hidden w-full">
+                <DottedSurface class="absolute inset-0 z-0 pointer-events-none" />
+                
                 <div 
-                    class="transition-all duration-1000 ease-out transform"
+                    class="relative z-10 transition-all duration-1000 ease-out transform"
                     :class="{ 'opacity-100 translate-y-0': contentVisible, 'opacity-0 translate-y-8': !contentVisible }"
                 >
                     <h1 class="text-5xl md:text-8xl font-light tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
