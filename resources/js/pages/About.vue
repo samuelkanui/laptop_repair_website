@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3';
 import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
 import Navbar from '@/components/ui/Navbar.vue';
+import GlowCard from '@/components/ui/GlowCard.vue';
 import { ShieldCheck, Clock, Users, Wrench } from 'lucide-vue-next';
 </script>
 
@@ -63,28 +64,36 @@ import { ShieldCheck, Clock, Users, Wrench } from 'lucide-vue-next';
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4 pt-8">
-                            <div class="p-6 bg-[#151515] rounded-2xl border border-white/5">
-                                <ShieldCheck class="w-8 h-8 text-white mb-4" />
-                                <h4 class="text-white font-medium">Warranty</h4>
-                                <p class="text-gray-500 text-sm mt-2">Every repair is backed by our guarantee.</p>
-                            </div>
-                            <div class="p-6 bg-[#151515] rounded-2xl border border-white/5">
-                                <Clock class="w-8 h-8 text-white mb-4" />
-                                <h4 class="text-white font-medium">Speed</h4>
-                                <p class="text-gray-500 text-sm mt-2">We value your time as much as you do.</p>
-                            </div>
+                            <GlowCard class="bg-black/40 border border-white/5" glow-color="purple" :custom-size="true">
+                                <template #default>
+                                    <ShieldCheck class="w-8 h-8 text-white mb-4" />
+                                    <h4 class="text-white font-medium">Warranty</h4>
+                                    <p class="text-gray-500 text-sm mt-2">Every repair is backed by our guarantee.</p>
+                                </template>
+                            </GlowCard>
+                            <GlowCard class="bg-black/40 border border-white/5" glow-color="blue" :custom-size="true">
+                                <template #default>
+                                    <Clock class="w-8 h-8 text-white mb-4" />
+                                    <h4 class="text-white font-medium">Speed</h4>
+                                    <p class="text-gray-500 text-sm mt-2">We value your time as much as you do.</p>
+                                </template>
+                            </GlowCard>
                         </div>
                         <div class="space-y-4">
-                            <div class="p-6 bg-[#151515] rounded-2xl border border-white/5">
-                                <Wrench class="w-8 h-8 text-white mb-4" />
-                                <h4 class="text-white font-medium">Expertise</h4>
-                                <p class="text-gray-500 text-sm mt-2">Certified technicians on every job.</p>
-                            </div>
-                            <div class="p-6 bg-[#151515] rounded-2xl border border-white/5">
-                                <Users class="w-8 h-8 text-white mb-4" />
-                                <h4 class="text-white font-medium">Personal</h4>
-                                <p class="text-gray-500 text-sm mt-2">You speak to the tech fixing your device.</p>
-                            </div>
+                            <GlowCard class="bg-black/40 border border-white/5" glow-color="green" :custom-size="true">
+                                <template #default>
+                                    <Wrench class="w-8 h-8 text-white mb-4" />
+                                    <h4 class="text-white font-medium">Expertise</h4>
+                                    <p class="text-gray-500 text-sm mt-2">Certified technicians on every job.</p>
+                                </template>
+                            </GlowCard>
+                            <GlowCard class="bg-black/40 border border-white/5" glow-color="orange" :custom-size="true">
+                                <template #default>
+                                    <Users class="w-8 h-8 text-white mb-4" />
+                                    <h4 class="text-white font-medium">Personal</h4>
+                                    <p class="text-gray-500 text-sm mt-2">You speak to the tech fixing your device.</p>
+                                </template>
+                            </GlowCard>
                         </div>
                     </div>
                 </div>
