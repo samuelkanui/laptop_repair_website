@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/vue3';
 import Navbar from '@/components/ui/Navbar.vue';
 import HoverFooter from '@/components/ui/HoverFooter.vue';
 import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
+import NeonCrystalCity from '@/components/ui/NeonCrystalCity.vue';
 import { Wrench, Cpu, Search, HardDrive, Shield, Zap } from 'lucide-vue-next';
 
 // Images - usually these would be dynamic or imported, but for now we reference the generated artifacts or placeholders
@@ -26,11 +27,10 @@ import { Wrench, Cpu, Search, HardDrive, Shield, Zap } from 'lucide-vue-next';
     <div class="min-h-screen w-full bg-black text-white font-sans selection:bg-white/20">
         
         <!-- Background -->
-        <div class="fixed inset-0 z-0 opacity-20 pointer-events-none">
-             <!-- Reusing dotted surface or spiral? Let's use Spiral for variety or Dotted for consistency? 
-                  The prompt implies consistent design. Let's use DottedSurface if available or Spiral as fallback. 
-                  Actually About used Spiral. Let's stick to consistent dark theme. -->
-             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900/50 via-[#000] to-[#000]"></div>
+        <div class="fixed inset-0 z-0 pointer-events-none">
+             <NeonCrystalCity class="w-full h-full opacity-50" />
+             <!-- Gradient Overlay for readability -->
+             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10"></div>
         </div>
 
         <Navbar />
