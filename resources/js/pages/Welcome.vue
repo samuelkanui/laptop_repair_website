@@ -4,8 +4,48 @@ import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
 import BrandMarquee from '@/components/ui/BrandMarquee.vue';
 import Navbar from '@/components/ui/Navbar.vue';
 import HoverFooter from '@/components/ui/HoverFooter.vue';
+import DisplayCards from '@/components/ui/DisplayCards.vue';
 import { ref, onMounted } from 'vue';
-import { Monitor, Cpu, Wrench, HardDrive, CheckCircle2, Zap, Shield, Search, PenTool, Truck } from 'lucide-vue-next';
+import { Monitor, Cpu, Wrench, HardDrive, CheckCircle2, Zap, Shield, Search, PenTool, Truck, Sparkles } from 'lucide-vue-next';
+
+const processCards = [
+    {
+        icon: Search,
+        title: "Diagnosis",
+        description: "Root cause identification",
+        date: "Step 1",
+        iconClassName: "text-blue-500",
+        titleClassName: "text-blue-500",
+        className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+        icon: Monitor,
+        title: "Quote",
+        description: "Transparent pricing",
+        date: "Step 2",
+        iconClassName: "text-emerald-500",
+        titleClassName: "text-emerald-500",
+        className: "[grid-area:stack] translate-x-20 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+        icon: Wrench,
+        title: "Repair",
+        description: "Expert fixing",
+        date: "Step 3",
+        iconClassName: "text-purple-500",
+        titleClassName: "text-purple-500",
+        className: "[grid-area:stack] translate-x-40 translate-y-20 hover:translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+        icon: Truck,
+        title: "Pickup",
+        description: "Ready to go",
+        date: "Step 4",
+        iconClassName: "text-yellow-500",
+        titleClassName: "text-yellow-500",
+        className: "[grid-area:stack] translate-x-60 translate-y-30 hover:translate-y-10",
+    },
+];
 
 const contentVisible = ref(false);
 const servicesVisible = ref(false);
@@ -143,44 +183,17 @@ onMounted(() => {
             </section>
 
             <!-- Process Section -->
-            <section class="w-full max-w-7xl mx-auto px-6 py-24">
+            <section class="w-full max-w-7xl mx-auto px-6 py-24 min-h-[600px] flex flex-col items-center">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-5xl font-light mb-4">How It Works</h2>
                     <p class="text-white/50 uppercase tracking-widest text-sm">Transparent & Simple</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                    <!-- Line connecting steps (Desktop only) -->
-                    <div class="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-10"></div>
-
-                    <div class="bg-black/50 border border-white/10 p-8 rounded-2xl text-center relative hover:bg-white/5 transition-colors">
-                        <div class="w-16 h-16 bg-[#111] border border-white/20 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 transform -translate-y-12">1</div>
-                        <Search class="w-8 h-8 mx-auto mb-4 text-white/60" />
-                        <h4 class="text-lg font-medium mb-2">Diagnosis</h4>
-                        <p class="text-sm text-white/40">We inspect your device and identify the root cause.</p>
-                    </div>
-
-                    <div class="bg-black/50 border border-white/10 p-8 rounded-2xl text-center relative hover:bg-white/5 transition-colors">
-                        <div class="w-16 h-16 bg-[#111] border border-white/20 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 transform -translate-y-12">2</div>
-                        <Monitor class="w-8 h-8 mx-auto mb-4 text-white/60" />
-                        <h4 class="text-lg font-medium mb-2">Quote</h4>
-                        <p class="text-sm text-white/40">You receive a transparent price quote. No hidden fees.</p>
-                    </div>
-
-                    <div class="bg-black/50 border border-white/10 p-8 rounded-2xl text-center relative hover:bg-white/5 transition-colors">
-                        <div class="w-16 h-16 bg-[#111] border border-white/20 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 transform -translate-y-12">3</div>
-                        <Wrench class="w-8 h-8 mx-auto mb-4 text-white/60" />
-                        <h4 class="text-lg font-medium mb-2">Repair</h4>
-                        <p class="text-sm text-white/40">Our experts get to work using high-quality parts.</p>
-                    </div>
-
-                    <div class="bg-black/50 border border-white/10 p-8 rounded-2xl text-center relative hover:bg-white/5 transition-colors">
-                        <div class="w-16 h-16 bg-[#111] border border-white/20 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 transform -translate-y-12">4</div>
-                        <Truck class="w-8 h-8 mx-auto mb-4 text-white/60" />
-                        <h4 class="text-lg font-medium mb-2">Pickup</h4>
-                        <p class="text-sm text-white/40">Test your device and pay only when satisfied.</p>
-                    </div>
+                <div class="w-full flex justify-center py-10">
+                    <DisplayCards :cards="processCards" />
                 </div>
+                
+
             </section>
 
             <!-- New Hover Footer -->
