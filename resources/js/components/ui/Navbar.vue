@@ -38,7 +38,7 @@ onUnmounted(() => {
             <div class="hidden md:flex items-center gap-8">
                 <Link href="/" class="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors">Home</Link>
                 <Link href="/about" class="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors">About</Link>
-                <a href="/#services" class="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors">Services</a>
+                <Link href="/services" class="text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors">Services</Link>
                 <Link 
                     href="/contact" 
                     class="px-6 py-2 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors"
@@ -60,7 +60,7 @@ onUnmounted(() => {
             >
                 <Link @click="isMobileMenuOpen = false" href="/" class="text-2xl font-light text-white">Home</Link>
                 <Link @click="isMobileMenuOpen = false" href="/about" class="text-2xl font-light text-white">About</Link>
-                <a @click="isMobileMenuOpen = false" href="/#services" class="text-2xl font-light text-white">Services</a>
+                <Link @click="isMobileMenuOpen = false" href="/services" class="text-2xl font-light text-white">Services</Link>
                 <Link @click="isMobileMenuOpen = false" href="/contact" class="text-2xl font-light text-white">Contact</Link>
             </div>
         </div>

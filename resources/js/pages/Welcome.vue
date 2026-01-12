@@ -95,12 +95,12 @@ onMounted(() => {
                     </p>
 
                     <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                        <button 
-                            @click="scrollToServices"
-                            class="group relative px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/20 transition-all duration-500 overflow-hidden min-w-[180px]"
+                        <Link
+                            href="/services"
+                            class="group relative inline-flex items-center justify-center px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/20 transition-all duration-500 overflow-hidden min-w-[180px]"
                         >
                             <span class="relative text-sm uppercase tracking-[0.2em] font-bold text-white">View Services</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
