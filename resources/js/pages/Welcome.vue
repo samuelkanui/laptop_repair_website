@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/vue3';
 import SpiralAnimation from '@/components/ui/SpiralAnimation.vue';
 import BrandMarquee from '@/components/ui/BrandMarquee.vue';
 import Navbar from '@/components/ui/Navbar.vue';
+import HoverFooter from '@/components/ui/HoverFooter.vue';
 import { ref, onMounted } from 'vue';
 import { Monitor, Cpu, Wrench, HardDrive, CheckCircle2, Zap, Shield, Search, PenTool, Truck } from 'lucide-vue-next';
 
@@ -182,27 +183,13 @@ onMounted(() => {
                 </div>
             </section>
 
-            <!-- Footer -->
-            <footer class="w-full bg-[#050505] border-t border-white/10 py-12 px-6">
-                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-                    <div>
-                        <div class="text-2xl font-bold text-white mb-2">LaptopDoctors</div>
-                        <p class="text-white/40 text-sm">Your trusted partner for all tech repairs.</p>
-                    </div>
-                    <div class="flex gap-8 text-sm text-white/60">
-                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                        <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-                    </div>
-                    <div class="text-white/30 text-xs tracking-widest uppercase">
-                        &copy; 2026 Laptop Doctors.
-                    </div>
-                </div>
-            </footer>
+            <!-- New Hover Footer -->
+            <HoverFooter />
 
         </div>
     </div>
 </template>
+
 
 <style scoped>
 /* Custom Scrollbar */
