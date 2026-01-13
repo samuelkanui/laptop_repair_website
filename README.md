@@ -1,6 +1,6 @@
 ﻿# Laptop Doctors - Modern Repair Services Platform
 
-A premium, high-performance web application for a laptop repair and software service business. Built with a modern full-stack architecture, it features a sleek, dark-themed UI with sophisticated animations and 3D interactive elements.
+A premium, high-performance web application for a laptop repair and software service business. Built with a modern full-stack architecture, it features a sleek, dark-themed UI with sophisticated animations, WebGL shaders, and 3D interactive elements.
 
 ## 🚀 Technology Stack
 
@@ -17,88 +17,57 @@ A premium, high-performance web application for a laptop repair and software ser
 -   **Build Tool**: [Vite 7.0](https://vitejs.dev)
 
 ### UI & Animations
--   **Three.js**: Custom 3D "Dotted Surface" wave animation in the Hero section.
--   **GSAP**: High-performance animations for interactions.
+-   **WebGL Shaders**: 
+    - Custom **Dotted Surface** wave animation (Hero Section).
+    - **Neon Crystal City** infinite flyover shader (Services Background).
+-   **GSAP**: High-performance animations for card interactions and page transitions.
+-   **Radix Vue**: Accessible primitive components (Accordion, Dialog, etc.).
+-   **Three.js**: Powering interactive 3D elements.
 -   **Lucide Vue**: Modern, consistent icon set.
--   **Component Architecture**: Modular, Shadcn-like structure (`resources/js/components/ui/`).
 
 ## ✨ Key Features
 
 ### 🖥️ Customer Facing
 -   **Interactive Home Page**:
-    -   **3D Hero Section**: Dynamic white dotted wave animation.
-    -   **Brand Marquee**: Infinite scrolling list of supported brands (Apple, Dell, HP, etc.) with auto-color switching.
-    -   **Stacked Process Cards**: Interactive "How It Works" section showing the 4-step repair process (Diagnosis -> Quote -> Repair -> Pickup).
-    -   **Floating Footer**: Premium "Card-style" footer with rainbow hover effects and "Laptop Doctors" branding.
--   **Service Pages**: Detailed breakdown of Hardware and Software services.
--   **Contact System**: Integrated contact form with backend email handling.
--   **About Page**: Company mission and values.
+    -   **3D Hero Section**: Dynamic white dotted wave animation with mouse interactivity.
+    -   **Brand Marquee**: Infinite scrolling list of 20+ supported brands with auto-color switching.
+    -   **Stacked Process Cards**: Interactive "How It Works" cards showing the 4-step repair journey.
+    -   **Text Hover Effect**: Dynamic SVG-based text paths for branding.
+-   **Services Experience**:
+    -   **Neon City Shader**: Immersive high-tech background for service exploration.
+    -   **Detailed Catalog**: Hardware Repairs (Microsoldering, Liquid Damage), Upgrades, and Software Solutions.
+-   **Contact & FAQ**:
+    -   **Atmospheric Bell Hero**: Interactive bell-lamp hero that transitions to "Service Ready" state.
+    -   **Glassmorphic FAQ**: Premium accordion system with frosted-glass effects and hover glows.
+    -   **Smart Form UX**: Focus-aware input fields with cyan glow effects and real-time validation.
+-   **About Page**: Responsive mission statement and expertise showcase using specialized **GlowCards**.
 
 ### 🔐 User & System (Fortify)
--   **Authentication**: Login, Registration, Password Reset.
+-   **Authentication**: Secure Login, Registration, and Password Reset.
 -   **Security**: Two-Factor Authentication (2FA) with QR Code setup and Recovery Codes.
--   **Profile Management**: Update profile information and passwords.
--   **Dashboard**: User dashboard for managing account settings.
-
-## 🛠️ Installation & Setup
-
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/yourusername/laptop-doctors.git
-    cd laptop-doctors
-    ```
-
-2.  **Install PHP Dependencies**:
-    ```bash
-    composer install
-    ```
-
-3.  **Install Node.js Dependencies**:
-    ```bash
-    npm install
-    ```
-
-4.  **Environment Setup**:
-    ```bash
-    cp .env.example .env
-    php artisan key:generate
-    ```
-    *Configure your database credentials in the `.env` file.*
-
-5.  **Database Migration**:
-    ```bash
-    php artisan migrate
-    ```
-
-6.  **Build Assets**:
-    ```bash
-    npm run build
-    ```
-
-7.  **Run Development Server**:
-    ```bash
-    php artisan serve
-    ```
-    *The site will be available at http://localhost:8000*
+-   **Profile Management**: Comprehensive settings for profile info, passwords, and security.
 
 ## 📂 Project Structure
 
--   `app/`: Core Laravel application logic (Models, Controllers, Mailables).
+-   `app/`: Laravel logic (Models, Controllers, Mailables, Actions).
 -   `resources/js/`:
-    -   `pages/`: Inertia Page components (Welcome, About, Contact).
-    -   `components/ui/`: Reusable UI components (Navbar, Footer, Animations).
-    -   `lib/`: Utility functions (e.g., `utils.ts` for Tailwind class merging).
+    -   `pages/`: Inertia Page components (`Welcome.vue`, `Services.vue`, `Contact.vue`, `About.vue`).
+    -   `components/ui/`: Modular UI system.
+        -   `BellLoader.vue`: Interactive bell hero.
+        -   `NeonCrystalCity.vue`: WebGL city shader.
+        -   `DottedSurface.vue`: 3D wave animation.
+        -   `GlowCard.vue`: Interactive lighting cards.
+    -   `lib/`: Utility functions (`cn` for Tailwind merging).
 -   `routes/`:
-    -   `web.php`: Application routes (Home, About, Contact).
-    -   `auth.php`: Authentication routes (handled by Fortify).
+    -   `web.php`: Core application routing.
 
 ## 🎨 Design Philosophy
 
-The design mandates a "Premium Dark Mode" aesthetic:
--   **Colors**: Deep blacks (`#000000`, `#0F0F11`) contrasted with bright white text and subtle blue/purple accents.
--   **Typography**: Clean sans-serif fonts (Inter/Geist) for readability.
--   **Motion**: Every interaction provides feedback. Elements fade in, hover states expand, and the background remains alive with subtle motion.
+The "Laptop Doctors" aesthetic is defined by **Premium Dark Design**:
+-   **Visual Hierarchy**: Pure black backgrounds (`#000000`) paired with cyan accents (`#06B6D4`) and subtle border glows.
+-   **Glassmorphism**: Extensive use of `backdrop-blur-md` and low-opacity whites (`bg-white/[0.03]`) for depth.
+-   **Motion**: Orchestrated entry animations using GSAP and Tailwind's `animate-in` variants for a living UI.
 
 ## 📄 License
 
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
