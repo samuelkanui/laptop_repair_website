@@ -2,6 +2,11 @@
 import { Head, useForm } from '@inertiajs/vue3';
 import Navbar from '@/components/ui/Navbar.vue';
 import BellLoader from '@/components/ui/BellLoader.vue';
+import ContactCard from '@/components/ui/ContactCard.vue';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, ChevronDown } from 'lucide-vue-next';
 import { AccordionContent, AccordionHeader, AccordionItem, AccordionRoot, AccordionTrigger } from 'radix-vue';
 
@@ -22,7 +27,7 @@ const submit = () => {
 
 <template>
     <Head title="Contact Us" />
-    <div class="bg-slate-950 min-h-screen">
+    <div class="bg-black text-white min-h-screen selection:bg-white/20">
         <Navbar />
         
         <!-- Bell Loader Hero Section -->
@@ -37,133 +42,109 @@ const submit = () => {
             />
         </div>
 
-        <!-- Standard Header -->
-        <div class="py-12 px-6 text-center border-b border-white/5">
-            <h1 class="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-                Get in Touch
-            </h1>
-            <p class="text-white/60 text-lg font-light leading-relaxed max-w-2xl mx-auto mt-4">
-                Have a broken device or need a custom build? We are here to help. Reach out to the Laptop Doctors today.
-            </p>
-        </div>
 
-        <div class="bg-slate-950 py-20">
-            <div class="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-6">
-                 <!-- Content Grid -->
-                 <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-left">
-                     <!-- Contact Info Section -->
-                    <div class="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
-                        <div class="hidden">
-                            <p class="text-white/60 text-lg font-light leading-relaxed">
-                                Have a broken device or need a custom build? We are here to help. Reach out to the Laptop Doctors today.
-                            </p>
+        <div class="bg-black py-20">
+            <div class="w-full max-w-6xl mx-auto px-6">
+                <ContactCard
+                    title="Get in Touch"
+                    description="Have a broken device or need a custom build? We are here to help. Reach out to the Laptop Doctors today."
+                    :contact-info="[
+                        {
+                            icon: Mail,
+                            label: 'Email Us',
+                            value: 'support@laptopdoctors.com',
+                        },
+                        {
+                            icon: Phone,
+                            label: 'Call Us',
+                            value: '+1 (555) 123-4567',
+                        },
+                        {
+                            icon: MapPin,
+                            label: 'Visit Us',
+                            value: '123 Tech Avenue, Silicon Valley, CA',
+                            class: 'sm:col-span-2 lg:col-span-1'
+                        }
+                    ]"
+                    class="rounded-[2rem] border-white/10 bg-[#0A0A0A] overflow-visible"
+                    formSectionClassName="bg-white/[0.01]"
+                >
+                    <form @submit.prevent="submit" class="space-y-5">
+                        <div class="space-y-2">
+                            <Label class="text-white/40 uppercase tracking-wider text-[10px]">Name</Label>
+                            <Input 
+                                v-model="form.name"
+                                placeholder="John Doe"
+                                class="bg-white/5 border-white/10 rounded-xl py-6"
+                                required
+                            />
+                            <div v-if="form.errors.name" class="text-red-400 text-xs">{{ form.errors.name }}</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <Label class="text-white/40 uppercase tracking-wider text-[10px]">Email</Label>
+                            <Input 
+                                v-model="form.email"
+                                type="email"
+                                placeholder="john@example.com"
+                                class="bg-white/5 border-white/10 rounded-xl py-6"
+                                required
+                            />
+                            <div v-if="form.errors.email" class="text-red-400 text-xs">{{ form.errors.email }}</div>
                         </div>
 
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                <div class="bg-blue-500/20 p-3 rounded-lg text-blue-300">
-                                    <Mail class="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-medium mb-1">Email Us</h3>
-                                    <p class="text-white/50 font-light">support@laptopdoctors.com</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                <div class="bg-purple-500/20 p-3 rounded-lg text-purple-300">
-                                    <Phone class="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-medium mb-1">Call Us</h3>
-                                    <p class="text-white/50 font-light">+1 (555) 123-4567</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                                <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-300">
-                                    <MapPin class="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-medium mb-1">Visit Us</h3>
-                                    <p class="text-white/50 font-light">123 Tech Avenue, Silicon Valley, CA</p>
-                                </div>
-                            </div>
+                        <div class="space-y-2">
+                            <Label class="text-white/40 uppercase tracking-wider text-[10px]">Subject</Label>
+                            <Input 
+                                v-model="form.subject"
+                                placeholder="Repair Inquiry / Software Help"
+                                class="bg-white/5 border-white/10 rounded-xl py-6"
+                                required
+                            />
+                            <div v-if="form.errors.subject" class="text-red-400 text-xs">{{ form.errors.subject }}</div>
                         </div>
-                    </div>
 
-                    <!-- Contact Form Section -->
-                    <div class="bg-[#0A0A0A] p-8 md:p-10 rounded-[2rem] border border-white/10 shadow-2xl animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 relative z-50">
-                        <form @submit.prevent="submit" class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label class="text-sm uppercase tracking-wider text-white/40">Name</label>
-                                    <input 
-                                        v-model="form.name"
-                                        type="text" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all font-light"
-                                        placeholder="John Doe"
-                                        required
-                                    />
-                                    <div v-if="form.errors.name" class="text-red-400 text-xs mt-1">{{ form.errors.name }}</div>
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-sm uppercase tracking-wider text-white/40">Email</label>
-                                    <input 
-                                        v-model="form.email"
-                                        type="email" 
-                                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all font-light"
-                                        placeholder="john@example.com"
-                                        required
-                                    />
-                                    <div v-if="form.errors.email" class="text-red-400 text-xs mt-1">{{ form.errors.email }}</div>
-                                </div>
-                            </div>
+                        <div class="space-y-2">
+                            <Label class="text-white/40 uppercase tracking-wider text-[10px]">Message</Label>
+                            <Textarea 
+                                v-model="form.message"
+                                placeholder="Describe your issue..."
+                                class="bg-white/5 border-white/10 rounded-xl min-h-[120px]"
+                                required
+                            />
+                            <div v-if="form.errors.message" class="text-red-400 text-xs">{{ form.errors.message }}</div>
+                        </div>
 
-                            <div class="space-y-2">
-                                <label class="text-sm uppercase tracking-wider text-white/40">Subject</label>
-                                <input 
-                                    v-model="form.subject"
-                                    type="text" 
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all font-light"
-                                    placeholder="Repair Inquiry / Software Help"
-                                    required
-                                />
-                                <div v-if="form.errors.subject" class="text-red-400 text-xs mt-1">{{ form.errors.subject }}</div>
+                        <Button 
+                            type="submit" 
+                            class="w-full bg-white text-black hover:bg-white/90 rounded-xl py-7 font-bold transition-all disabled:opacity-50"
+                            :disabled="form.processing"
+                        >
+                            <div class="flex items-center gap-2">
+                                {{ form.processing ? 'Sending...' : 'Send Message' }}
+                                <Send v-if="!form.processing" class="w-4 h-4" />
                             </div>
+                        </Button>
 
-                            <div class="space-y-2">
-                                <label class="text-sm uppercase tracking-wider text-white/40">Message</label>
-                                <textarea 
-                                    v-model="form.message"
-                                    rows="5"
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all font-light resize-none"
-                                    placeholder="Describe your issue..."
-                                    required
-                                ></textarea>
-                                <div v-if="form.errors.message" class="text-red-400 text-xs mt-1">{{ form.errors.message }}</div>
+                        <Transition
+                            enter-active-class="transition duration-300 ease-out"
+                            enter-from-class="transform scale-95 opacity-0"
+                            enter-to-class="transform scale-100 opacity-100"
+                            leave-active-class="transition duration-75 ease-in"
+                            leave-from-class="transform scale-100 opacity-100"
+                            leave-to-class="transform scale-95 opacity-0"
+                        >
+                            <div v-if="form.recentlySuccessful" class="text-emerald-400 text-center text-sm pt-2">
+                                Message sent successfully!
                             </div>
-
-                            <button 
-                                :disabled="form.processing" 
-                                type="submit" 
-                                class="w-full bg-white text-black font-semibold rounded-xl py-4 hover:bg-white/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                            >
-                                <span v-if="form.processing">Sending...</span>
-                                <span v-else class="flex items-center gap-2">Send Message <Send class="w-4 h-4" /></span>
-                            </button>
-                            
-                            <div v-if="form.recentlySuccessful" class="text-emerald-400 text-center text-sm mt-4 animate-pulse">
-                                Message sent successfully! We will get back to you shortly.
-                            </div>
-                        </form>
-                    </div>
-                 </div>
+                        </Transition>
+                    </form>
+                </ContactCard>
             </div>
         </div>
 
         <!-- FAQ Section with Accordion -->
-        <div class="bg-slate-950 py-20">
+        <div class="bg-black py-20">
             <div class="w-full max-w-4xl mx-auto px-6">
                  <div class="w-full mt-20 mb-12 max-w-4xl mx-auto">
                      <div class="space-y-2 mb-8">
