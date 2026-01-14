@@ -5,6 +5,7 @@ import BrandMarquee from '@/components/ui/BrandMarquee.vue';
 import Navbar from '@/components/ui/Navbar.vue';
 import HoverFooter from '@/components/ui/HoverFooter.vue';
 import DisplayCards from '@/components/ui/DisplayCards.vue';
+import SpotlightCard from '@/components/ui/SpotlightCard.vue';
 import { ref, onMounted } from 'vue';
 import { Monitor, Cpu, Wrench, HardDrive, CheckCircle2, Zap, Shield, Search, PenTool, Truck, Sparkles } from 'lucide-vue-next';
 
@@ -156,27 +157,44 @@ onMounted(() => {
             <section class="w-full bg-white/5 backdrop-blur-lg border-y border-white/10 py-24">
                 <div class="max-w-7xl mx-auto px-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div class="text-center space-y-4">
-                            <div class="mx-auto w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6">
+                        <!-- Card 1: Lightning Fast -->
+                        <SpotlightCard class="p-8 h-full flex flex-col gap-4 text-center items-center" spotlightColor="rgba(56, 189, 248, 0.25)">
+                            <div class="h-16 w-16 flex items-center justify-center rounded-full bg-blue-500/10 text-blue-400 mb-2">
                                 <Zap class="w-8 h-8" />
                             </div>
-                            <h3 class="text-xl font-medium">Lightning Fast</h3>
-                            <p class="text-white/50 leading-relaxed">Most repairs completed within 24-48 hours. We understand your device is essential.</p>
-                        </div>
-                        <div class="text-center space-y-4">
-                            <div class="mx-auto w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 mb-6">
+                            <div>
+                                <h3 class="text-xl font-medium text-white mb-2">Lightning Fast</h3>
+                                <p class="text-white/50 leading-relaxed">
+                                    Most repairs completed within 24-48 hours. We understand your device is essential.
+                                </p>
+                            </div>
+                        </SpotlightCard>
+
+                        <!-- Card 2: 90-Day Warranty -->
+                        <SpotlightCard class="p-8 h-full flex flex-col gap-4 text-center items-center" spotlightColor="rgba(16, 185, 129, 0.25)">
+                            <div class="h-16 w-16 flex items-center justify-center rounded-full bg-green-500/10 text-green-400 mb-2">
                                 <Shield class="w-8 h-8" />
                             </div>
-                            <h3 class="text-xl font-medium">90-Day Warranty</h3>
-                            <p class="text-white/50 leading-relaxed">We stand behind our work. All hardware repairs come with a comprehensive warranty.</p>
-                        </div>
-                        <div class="text-center space-y-4">
-                            <div class="mx-auto w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-400 mb-6">
+                            <div>
+                                <h3 class="text-xl font-medium text-white mb-2">90-Day Warranty</h3>
+                                <p class="text-white/50 leading-relaxed">
+                                    We stand behind our work. All hardware repairs come with a comprehensive warranty.
+                                </p>
+                            </div>
+                        </SpotlightCard>
+
+                        <!-- Card 3: Certified Pros -->
+                        <SpotlightCard class="p-8 h-full flex flex-col gap-4 text-center items-center" spotlightColor="rgba(249, 115, 22, 0.25)">
+                            <div class="h-16 w-16 flex items-center justify-center rounded-full bg-orange-500/10 text-orange-400 mb-2">
                                 <PenTool class="w-8 h-8" />
                             </div>
-                            <h3 class="text-xl font-medium">Certified Pros</h3>
-                            <p class="text-white/50 leading-relaxed">Our technicians are certified experts with years of experience in micro-electronics.</p>
-                        </div>
+                            <div>
+                                <h3 class="text-xl font-medium text-white mb-2">Certified Pros</h3>
+                                <p class="text-white/50 leading-relaxed">
+                                    Our technicians are certified experts with years of experience in micro-electronics.
+                                </p>
+                            </div>
+                        </SpotlightCard>
                     </div>
                 </div>
             </section>

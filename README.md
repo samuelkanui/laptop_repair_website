@@ -20,10 +20,51 @@ A premium, high-performance web application for a laptop repair and software ser
 -   **WebGL Shaders**: 
     - Custom **Dotted Surface** wave animation (Hero Section).
     - **Neon Crystal City** infinite flyover shader (Services Background).
+    - **Spiral Animation** hypnotic 3D shader effect.
 -   **GSAP**: High-performance animations for card interactions and page transitions.
 -   **Radix Vue**: Accessible primitive components (Accordion, Dialog, etc.).
 -   **Three.js**: Powering interactive 3D elements.
 -   **Lucide Vue**: Modern, consistent icon set.
+
+## 🛠️ Getting Started
+
+### Prerequisites
+-   **PHP**: 8.2 or higher
+-   **Node.js**: 20.x or higher
+-   **Composer**: Latest version
+-   **Database**: MySQL or SQLite
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone <repository_url>
+    cd laptop-doctors
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    composer install
+    npm install
+    ```
+
+3.  **Environment Setup**
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+4.  **Database Setup**
+    Configure your `.env` file with your database credentials, then run:
+    ```bash
+    php artisan migrate
+    ```
+
+5.  **Start Development Server**
+    ```bash
+    npm run dev
+    ```
+    This command will start both the Vite dev server and the Laravel server (using concurrently).
 
 ## ✨ Key Features
 
@@ -57,6 +98,7 @@ A premium, high-performance web application for a laptop repair and software ser
         -   `NeonCrystalCity.vue`: WebGL city shader.
         -   `DottedSurface.vue`: 3D wave animation.
         -   `GlowCard.vue`: Interactive lighting cards.
+        -   `SpiralAnimation.vue`: Hypnotic spiral shader.
     -   `lib/`: Utility functions (`cn` for Tailwind merging).
 -   `routes/`:
     -   `web.php`: Core application routing.
